@@ -9,10 +9,6 @@ git add . // add directory
 git commit -m "Initial commit"
 git push -u origin main
 
-Sure, here is the summary in a block of text that you can copy and save to a file:
-
-plaintext
-
 ### Steps to Initialize a Local Repository, Add Remote Origin, and Push to GitHub
 
 1. **Navigate to Your Local Repository:**
