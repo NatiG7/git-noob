@@ -1,0 +1,11 @@
+single block for repo creation :
+
+cd /path/to/your/repo
+git init
+git remote remove origin // to clear any that were before
+git remote add origin git@github.com:username/repoName.git
+git remote -v // confirm origin was added correctly, fetch , pull
+git add . // add directory
+git commit -m "Initial commit"
+git push -u origin main
+
