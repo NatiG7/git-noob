@@ -1,0 +1,113 @@
+providing credentials :
+
+$ git config --global user.name "Your Name Comes Here"
+$ git config --global user.email you@yourdomain.example.com
+
+can make a tarball with project name
+
+	   $ tar xzf project.tar.gz
+           $ cd project
+           $ git init
+
+# git will reply with git ini it .git/
+snapshot after this 
+
+$git add .
+
+and then git commit, a prompt will be opened to give a commit message
+
+then i can add files to the index :
+
+$ git add file1 file2 file3
+
+check what is about to be commited :
+
+$ git diff --cached
+# Without --cached, git diff will show you any changes that you’ve made but not
+  yet added to the index.) You can also get a brief summary of the situation with
+  git status:
+
+$ git status
+           On branch master
+           Changes to be committed:
+             (use "git restore --staged <file>..." to unstage)
+
+                   modified:   file1
+                   modified:   file2
+                   modified:   file3
+
+after this, git commit.
+Alternatively, instead of running git add beforehand, you can use
+
+           $ git commit -a
+
+       which will automatically notice any modified (but not new) files, add them to
+       the index, and commit, all in one step.
+
+MANAGING BRANCHES
+       A single Git repository can maintain multiple branches of development. To create
+       a new branch named experimental, use
+
+           $ git branch experimental
+
+       If you now run
+
+           $ git branch
+
+       you’ll get a list of all existing branches:
+
+             experimental
+           * master
+
+The experimental branch is the one you just created, and the master branch is a
+       default branch that was created for you automatically. The asterisk marks the
+       branch you are currently on; type
+
+           $ git switch experimental
+
+       to switch to the experimental branch. Now edit a file, commit the change, and
+       switch back to the master branch:
+
+           (edit file)
+           $ git commit -a
+           $ git switch master
+
+       Check that the change you made is no longer visible, since it was made on the
+       experimental branch and you’re back on the master branch.
+
+You can make a different change on the master branch:
+
+           (edit file)
+           $ git commit -a
+
+       at this point the two branches have diverged, with different changes made in
+       each. To merge the changes made in experimental into master, run
+
+           $ git merge experimental
+
+       If the changes don’t conflict, you’re done. If there are conflicts, markers will
+       be left in the problematic files showing the conflict;
+
+           $ git diff
+
+       will show this. Once you’ve edited the files to resolve the conflicts,
+           $ git commit -a
+
+       will commit the result of the merge. Finally,
+
+           $ gitk
+
+       will show a nice graphical representation of the resulting history.
+
+       At this point you could delete the experimental branch with
+
+           $ git branch -d experimental
+
+       This command ensures that the changes in the experimental branch are already in
+       the current branch.
+       If you develop on a branch crazy-idea, then regret it
+       you can always delete the branch with :
+
+           $ git branch -D crazy-idea
+
+       Branches are cheap and easy, so this is a good way to try something out.
