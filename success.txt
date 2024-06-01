@@ -1,0 +1,4 @@
+New repo created,
+created new branch,
+commited to it, 
+deleted after merging with main.
